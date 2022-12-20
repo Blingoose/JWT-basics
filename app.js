@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import { connectDB } from "./db/connect.js";
 import { errorHandlerMiddleware } from "./middleware/error-handler.js";
 import { notFound } from "./middleware/not-found.js";
+import mainRouter from "./routes/main.js";
 
 dotenv.config();
 
@@ -17,6 +18,7 @@ const start = async () => {
 
     //Route-specific middleware functions
     server.use(express.static("./public"));
+    server.use("/api/v1", mainRouter);
 
     // Error handling middleware function
     server.use(errorHandlerMiddleware);

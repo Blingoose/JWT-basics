@@ -1,1 +1,1 @@
-# JWT-basics
+# JsonWebToken-Basics
